@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91今日大乱斗-今日大乱斗热点聚合_乱斗合集更新速览</title>
+<meta name="description" content="91今日大乱斗汇集当日热门乱斗看点与热门话题合集，按时间线梳理内容更新，提供快速浏览与筛选入口，方便随时跟进今日热点内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M14 40l10-14 8 10 8-14 10 18' stroke='%23f97316' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='46' cy='18' r='5' fill='%23fbbf24'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0d1117;
+    --bg-soft:#151b24;
+    --card:#1a2230;
+    --line:#2a3444;
+    --txt:#e8edf4;
+    --muted:#9aa7b8;
+    --accent:#f97316;
+    --accent-soft:#fbbf24;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{width:min(1120px,92vw);margin:0 auto}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,17,23,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.12rem;letter-spacing:.5px}
+  .brand .mark{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(135deg,#f97316,#ef4444);
+    display:grid;place-items:center;flex:none;
+    box-shadow:0 6px 18px rgba(249,115,22,.35);
+  }
+  .brand .mark svg{width:22px;height:22px}
+  nav.links{display:flex;gap:6px;flex-wrap:wrap}
+  nav.links a{
+    font-size:.9rem;color:var(--muted);padding:7px 12px;border-radius:9px;
+    transition:.2s;
+  }
+  nav.links a:hover,nav.links a:focus-visible{color:var(--txt);background:var(--card)}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;padding:52px 0 44px;border-bottom:1px solid var(--line)}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(600px 260px at 82% -10%,rgba(249,115,22,.20),transparent 70%),
+      radial-gradient(500px 240px at 8% 110%,rgba(251,191,36,.10),transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+  .tagline{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.8rem;color:var(--accent-soft);
+    background:rgba(249,115,22,.12);
+    border:1px solid rgba(249,115,22,.35);
+    padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .tagline .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(249,115,22,.25)}
+  h1{
+    font-size:clamp(1.9rem,4.4vw,3.05rem);
+    line-height:1.22;font-weight:900;letter-spacing:1px;
+    background:linear-gradient(100deg,#fff 20%,#ffd8b0 70%,#f97316 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{color:var(--muted);font-size:1rem;margin-top:18px;max-width:52ch}
+  .hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:11px;font-size:.94rem;font-weight:700;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;box-shadow:0 8px 22px rgba(239,68,68,.28)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(239,68,68,.38)}
+  .btn-ghost{border-color:var(--line);color:var(--txt);background:var(--bg-soft)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-soft)}
+  .btn[aria-disabled="true"]{cursor:default;opacity:.85}
+  .hero-visual{position:relative;display:grid;place-items:center}
+  .hero-visual .ring{
+    width:min(280px,80%);aspect-ratio:1;border-radius:50%;
+    border:1px dashed rgba(249,115,22,.4);
+    display:grid;place-items:center;
+    animation:spin 26s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero-visual .core{
+    width:78%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#2b1b12,#151b24 70%);
+    border:1px solid var(--line);
+    display:grid;place-items:center;
+    animation:spin 26s linear infinite reverse;
+  }
+  .hero-visual .core svg{width:56%;height:56%}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+  .stat{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;
+  }
+  .stat b{display:block;font-size:1.35rem;color:var(--accent-soft);line-height:1.3}
+  .stat span{font-size:.82rem;color:var(--muted)}
+
+  /* Sections */
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+  .sec-head h2{font-size:1.5rem;font-weight:800;letter-spacing:.5px}
+  .sec-head h2::before{
+    content:"";display:inline-block;width:8px;height:22px;border-radius:3px;
+    background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+    margin-right:12px;vertical-align:-3px;
+  }
+  .sec-head p{color:var(--muted);font-size:.88rem;max-width:46ch}
+
+  /* Filter */
+  .filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .chip{
+    font-size:.85rem;padding:7px 15px;border-radius:999px;
+    background:var(--bg-soft);border:1px solid var(--line);color:var(--muted);
+    cursor:pointer;transition:.2s;
+  }
+  .chip:hover{color:var(--txt);border-color:#3c4a5e}
+  .chip.active{background:rgba(249,115,22,.15);border-color:var(--accent);color:var(--accent-soft);font-weight:700}
+
+  /* Cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;display:flex;flex-direction:column;gap:10px;
+    transition:.22s;position:relative;overflow:hidden;
+  }
+  .card::after{
+    content:"";position:absolute;inset:0 0 auto 0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-soft));
+    opacity:0;transition:.22s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:#3a4658;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+  .card:hover::after{opacity:1}
+  .card .meta{display:flex;align-items:center;gap:8px;font-size:.76rem;color:var(--muted)}
+  .badge{background:rgba(249,115,22,.14);color:var(--accent-soft);padding:2px 9px;border-radius:6px;font-weight:700;font-size:.72rem}
+  .card h3{font-size:1.02rem;font-weight:800;line-height:1.45}
+  .card p{font-size:.86rem;color:var(--muted);flex:1}
+  .card .go{font-size:.82rem;color:var(--accent-soft);font-weight:700;display:inline-flex;gap:5px;align-items:center}
+  .card .go svg{width:13px;height:13px}
+
+  /* Timeline */
+  .timeline{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:8px}
+  .tl-item{position:relative;padding:0 0 26px 26px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);
+  }
+  .tl-time{font-size:.78rem;color:var(--accent-soft);font-weight:800;letter-spacing:.5px}
+  .tl-item h4{font-size:.98rem;margin:4px 0 4px}
+  .tl-item p{font-size:.86rem;color:var(--muted)}
+
+  /* About block */
+  .about{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;
+    padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:30px;
+  }
+  .about h2{font-size:1.4rem;margin-bottom:14px}
+  .about p{color:var(--muted);font-size:.92rem;margin-bottom:12px}
+  .about ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .about li{display:flex;gap:11px;font-size:.9rem;color:var(--muted)}
+  .about li svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--accent)}
+  .about li strong{color:var(--txt);font-weight:700}
+
+  /* CTA strip */
+  .cta{
+    background:linear-gradient(120deg,rgba(249,115,22,.16),rgba(239,68,68,.08));
+    border:1px solid rgba(249,115,22,.3);border-radius:18px;
+    padding:34px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  }
+  .cta h2{font-size:1.35rem;margin-bottom:6px}
+  .cta p{color:var(--muted);font-size:.9rem}
+
+  /* Footer */
+  footer.site{border-top:1px solid var(--line);padding:34px 0 40px;background:#0a0e13}
+  .foot-grid{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .foot-brand .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#f97316,#ef4444);display:grid;place-items:center;flex:none}
+  .foot-brand .mark svg{width:17px;height:17px}
+  .foot-note{font-size:.8rem;color:var(--muted);line-height:1.9;max-width:56ch}
+  .foot-links{display:flex;gap:18px;font-size:.83rem;color:var(--muted);flex-wrap:wrap}
+  .foot-links a:hover{color:var(--accent-soft)}
+  .copy{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:.78rem;color:#6b7889}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:26px}
+    .hero-visual{order:-1;margin-bottom:6px}
+    .hero-visual .ring{width:180px}
+    .cards{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr;padding:26px}
+  }
+  @media(max-width:620px){
+    .nav-inner{padding:11px 0}
+    nav.links{gap:2px}
+    nav.links a{padding:6px 9px;font-size:.83rem}
+    .hero{padding:34px 0 30px}
+    .hero p.lead{font-size:.92rem}
+    .stats{grid-template-columns:1fr;gap:10px}
+    .cards{grid-template-columns:1fr}
+    section{padding:38px 0}
+    .sec-head h2{font-size:1.28rem}
+    .cta{padding:24px}
+    .foot-grid{flex-direction:column}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="91今日大乱斗 首页">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 16l4-6 3.5 4.5L14 7l4 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="5" r="2" fill="#fff"/></svg>
+      </span>
+      <span>91今日大乱斗</span>
+    </a>
+    <nav class="links" aria-label="主导航">
+      <a href="#today">今日看点</a>
+      <a href="#topics">热门合集</a>
+      <a href="#timeline">更新节奏</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="tagline"><span class="dot"></span>当日热点聚合 · 持续更新</span>
+          <h1>91今日大乱斗</h1>
+          <p class="lead">91今日大乱斗把一天里分散的乱斗类热点收拢到同一页：先看今日看点，再进热门合集，最后按更新节奏回看。不用来回切换，打开就能知道今天聊什么。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#today">
+              查看今日看点
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#topics">浏览热门合集</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>3</b><span>今日主推看点</span></div>
+            <div class="stat"><b>6</b><span>在列热门合集</span></div>
+            <div class="stat"><b>4</b><span>日更时段节点</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="ring">
+            <div class="core">
+              <svg viewBox="0 0 120 120" fill="none">
+                <path d="M20 82l20-30 16 22 18-34 26 42" stroke="#f97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="94" cy="30" r="9" fill="#fbbf24"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Today -->
+  <section id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>今日看点</h2>
+        <p>91今日大乱斗每日筛出讨论度最高的几条乱斗内容，按主题归类，点击标签可快速切换。</p>
+      </div>
+
+      <div class="filter" role="group" aria-label="看点筛选">
+        <button class="chip active" data-filter="all">全部</button>
+        <button class="chip" data-filter="duel">对局</button>
+        <button class="chip" data-filter="clip">片段</button>
+        <button class="chip" data-filter="talk">讨论</button>
+      </div>
+
+      <div class="cards" id="cardList">
+        <article class="card" data-cat="duel">
+          <div class="meta"><span class="badge">对局</span><span>上午场</span></div>
+          <h3>多人同场乱斗开局节奏</h3>
+          <p>开局三十秒的站位选择往往决定整场走向，今日整理了几种常见开局思路，供快速对照。</p>
+          <span class="go">进入合集 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </article>
+
+        <article class="card" data-cat="clip">
+          <div class="meta"><span class="badge">片段</span><span>午间更新</span></div>
+          <h3>高光操作片段合辑</h3>
+          <p>把当天流传较广的几个操作片段放在一起，按出现顺序排列，便于一次看完不遗漏。</p>
+          <span class="go">进入合集 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </article>
+
+        <article class="card" data-cat="talk">
+          <div class="meta"><span class="badge">讨论</span><span>下午场</span></div>
+          <h3>乱斗规则解读讨论</h3>
+          <p>围绕乱斗模式规则细节的讨论持续升温，这里汇总了主要观点与争议点，方便自行判断。</p>
+          <span class="go">进入合集 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </article>
+
+        <article class="card" data-cat="duel">
+          <div class="meta"><span class="badge">对局</span><span>傍晚场</span></div>
+          <h3>阵容搭配的几种常见组合</h3>
+          <p>不同角色定位在同一场乱斗中的搭配差异明显，今日挑出三组讨论较多的组合做简要说明。</p>
+          <span class="go">进入合集 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </article>
+
+        <article class="card" data-cat="clip">
+          <div class="meta"><span class="badge">片段</span><span>晚间更新</span></div>
+          <h3>逆转时刻片段回顾</h3>
+          <p>把当天几次明显劣势后翻盘的片段整理到一起，按时间先后排列，便于回看关键节点。</p>
+          <span class="go">进入合集 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </article>
+
+        <article class="card" data-cat="talk">
+          <div class="meta"><span class="badge">讨论</span><span>夜间场</span></div>
+          <h3>新手常见误区汇总</h3>
+          <p>针对刚接触乱斗模式的读者，整理了几条出现频率较高的误区，逐条给出对应的调整方向。</p>
+          <span class="go">进入合集 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics -->
+  <section id="topics">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热门合集</h2>
+        <p>91今日大乱斗把同类看点归档成合集，长期保留，便于按主题回看而不是逐条翻找。</p>
+      </div>
+      <div class="about">
+        <div>
+          <h2>合集怎么用</h2>
+          <p>合集按内容类型划分，每个合集只放同一类内容，避免不同类别的信息混在一起。进入合集后可以按发布时间从近到远浏览，也可以只看某一天的记录。</p>
+          <p>合集内容会随着当天更新持续补充，旧内容不删除，只在顶部加入新的条目。这样回看时能清楚看到某类看点在一段时间里的变化。</p>
+        </div>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <span><strong>对局合集</strong>：开局思路、阵容搭配与局势判断相关内容集中在这里。</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <span><strong>片段合集</strong>：高光、逆转与关键节点片段按时间顺序排列。</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <span><strong>讨论合集</strong>：规则解读、观点分歧与新手误区等内容归入此类。</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>更新节奏</h2>
+        <p>91今日大乱斗按固定时段补充内容，读者可以据此安排浏览时间，不必反复刷新。</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">09:00 · 上午场</div>
+          <h4>对局类内容先行</h4>
+          <p>先更新开局思路与阵容搭配，覆盖当天较早开始的乱斗对局，适合提前了解再看。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">13:00 · 午间场</div>
+          <h4>片段类内容补齐</h4>
+          <p>上午流传较广的片段集中上线，同一事件的不同视角合并放在同一条记录下。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:30 · 傍晚场</div>
+          <h4>讨论类内容汇总</h4>
+          <p>把当天出现的主要观点与分歧整理成条目，保留原文表述，不做额外加工。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">22:00 · 夜间场</div>
+          <h4>当日回顾与归档</h4>
+          <p>当天内容统一归档进对应合集，同时补上遗漏条目，形成完整的当日记录。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <h2>关于 91今日大乱斗</h2>
+          <p>91今日大乱斗是一个围绕乱斗类内容做当日聚合的页面。它的做法很直接：把同一天里分散在各处的看点按类型收拢，标出时间，按顺序排列，让读者用一次浏览完成了解。</p>
+          <p>页面不追求覆盖全部内容，而是挑出讨论度较高、信息相对完整的部分。每条记录都注明所属类型和更新时段，读者可以据此判断是否继续深入。</p>
+        </div>
+        <div>
+          <h2>内容边界</h2>
+          <p>页面只做信息聚合与顺序编排，不对原始内容做改写或评价。涉及规则与数据的部分，保留来源原有的表述范围与确定程度。</p>
+          <p>若某条内容后续出现更新，会在原条目上补充说明，而不是另起新条，避免同类信息重复出现。这样合集在长期使用中仍然清晰。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>从今日看点开始</h2>
+          <p>先看今日看点，再按需进入合集，或直接按更新节奏回看当天记录。</p>
+        </div>
+        <div class="hero-actions" style="margin:0">
+          <a class="btn btn-primary" href="#today">立即浏览</a>
+          <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 16l4-6 3.5 4.5L14 7l4 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="5" r="2" fill="#fff"/></svg>
+          </span>
+          <span>91今日大乱斗</span>
+        </div>
+        <p class="foot-note" style="margin-top:12px">91今日大乱斗 · 当日乱斗热点聚合页。内容按类型归档、按时段更新，便于快速浏览与回看。页面仅做信息聚合与顺序编排。</p>
+      </div>
+      <div class="foot-links">
+        <a href="#today">今日看点</a>
+        <a href="#topics">热门合集</a>
+        <a href="#timeline">更新节奏</a>
+        <a href="#about">关于本站</a>
+      </div>
+    </div>
+    <div class="copy">© 2024 91今日大乱斗 · 内容随当日更新调整</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    var cards = document.querySelectorAll('#cardList .card');
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        var f = chip.getAttribute('data-filter');
+        cards.forEach(function(card){
+          var cat = card.getAttribute('data-cat');
+          card.style.display = (f === 'all' || cat === f) ? '' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
