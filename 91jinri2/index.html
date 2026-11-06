@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91今日大赛-今日大赛热点榜单_91大赛最新动态合集</title>
+<meta name="description" content="91今日大赛汇集当日热门大赛动态与话题榜单，按热度与更新时间整理看点，提供91今日大赛的热点速览、榜单浏览与话题入口，帮助访问者快速掌握今日大赛焦点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111a2b'/%3E%3Cpath d='M20 42 L32 16 L44 42 Z' fill='%23f2b94b'/%3E%3Ccircle cx='32' cy='46' r='4' fill='%23f2b94b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0e1420;
+  --panel:#161e2e;
+  --panel-2:#1d2739;
+  --line:#2a3549;
+  --text:#e8edf6;
+  --muted:#96a3b8;
+  --gold:#f2b94b;
+  --gold-soft:rgba(242,185,75,.12);
+  --red:#e2564a;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* 头部 */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,20,32,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-mark{width:34px;height:34px;flex-shrink:0}
+.brand-name{font-size:17px;font-weight:700;letter-spacing:.5px;color:var(--text);white-space:nowrap}
+.nav{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.nav a{font-size:14px;color:var(--muted);transition:color .2s}
+.nav a:hover,.nav a:focus{color:var(--gold)}
+.nav .nav-cta{
+  color:#1a1204;background:var(--gold);
+  padding:6px 14px;border-radius:999px;font-weight:600;
+}
+.nav .nav-cta:hover{color:#1a1204;filter:brightness(1.07)}
+
+/* 首屏 */
+.hero{
+  position:relative;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 320px at 82% -10%, rgba(242,185,75,.14), transparent 70%),
+    radial-gradient(600px 260px at 8% 110%, rgba(226,86,74,.10), transparent 70%);
+  overflow:hidden;
+}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:52px 0 46px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--gold);
+  background:var(--gold-soft);border:1px solid rgba(242,185,75,.32);
+  padding:5px 12px;border-radius:999px;margin-bottom:18px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(28px,4.4vw,42px);line-height:1.25;letter-spacing:1px;font-weight:800}
+h1 .hl{color:var(--gold)}
+.hero-desc{margin-top:16px;color:var(--muted);font-size:15.5px;max-width:38em}
+.hero-desc strong{color:var(--text);font-weight:600}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:10px;font-size:15px;font-weight:600;
+  border:1px solid transparent;transition:transform .15s,filter .2s;cursor:pointer;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--gold);color:#1a1204}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn[aria-disabled="true"]{opacity:.6;pointer-events:none}
+
+/* 首屏侧栏快照 */
+.hero-side{
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;
+}
+.hero-side h2{font-size:14px;color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:14px}
+.side-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.side-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text)}
+.side-rank{
+  flex-shrink:0;width:20px;height:20px;border-radius:6px;
+  font-size:12px;font-weight:700;display:grid;place-items:center;
+  background:var(--panel-2);color:var(--muted);margin-top:2px;
+}
+.side-list li:nth-child(1) .side-rank{background:var(--gold);color:#1a1204}
+.side-list li:nth-child(2) .side-rank{background:rgba(242,185,75,.35);color:var(--gold)}
+.side-list li:nth-child(3) .side-rank{background:rgba(226,86,74,.28);color:#f08a80}
+.side-meta{display:block;color:var(--muted);font-size:12.5px;margin-top:1px}
+
+/* 通用区块 */
+section{padding:52px 0}
+.section-head{margin-bottom:26px}
+.section-head h2{font-size:23px;font-weight:700;letter-spacing:.5px}
+.section-head p{color:var(--muted);font-size:14.5px;margin-top:8px;max-width:46em}
+
+/* 榜单卡片 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;display:flex;flex-direction:column;gap:12px;
+  transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:rgba(242,185,75,.45);transform:translateY(-2px)}
+.card-tag{
+  align-self:flex-start;font-size:12px;font-weight:600;
+  padding:3px 10px;border-radius:999px;
+  background:var(--gold-soft);color:var(--gold);border:1px solid rgba(242,185,75,.28);
+}
+.card-tag.warm{background:rgba(226,86,74,.14);color:#f08a80;border-color:rgba(226,86,74,.3)}
+.card h3{font-size:17px;line-height:1.5;font-weight:700}
+.card p{color:var(--muted);font-size:14px;flex:1}
+.card-foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:11px}
+.card-foot .hot{color:var(--gold)}
+
+/* 速览列表 */
+.list-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.list-row{
+  display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;
+  padding:16px 22px;border-bottom:1px solid var(--line);
+}
+.list-row:last-child{border-bottom:none}
+.list-row:hover{background:var(--panel-2)}
+.num{font-size:18px;font-weight:800;color:var(--line);text-align:center}
+.list-row:nth-child(-n+3) .num{color:var(--gold)}
+.list-title{font-size:15px;font-weight:600}
+.list-desc{font-size:13px;color:var(--muted);margin-top:2px}
+.list-time{font-size:12.5px;color:var(--muted);white-space:nowrap}
+
+/* 双栏正文 */
+.split{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start}
+.article-block{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.article-block h3{font-size:18px;margin-bottom:12px;color:var(--gold)}
+.article-block p{font-size:14.5px;color:#c3cddd;margin-bottom:12px}
+.article-block p:last-child{margin-bottom:0}
+.aside-note{
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+}
+.aside-note h3{font-size:16px;margin-bottom:14px}
+.aside-note ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.aside-note li{font-size:14px;color:var(--muted);padding-left:16px;position:relative}
+.aside-note li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* 快捷键入口 */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.quick a{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 16px;font-size:14.5px;font-weight:600;
+  display:flex;align-items:center;gap:10px;transition:border-color .2s,color .2s;
+}
+.quick a:hover{border-color:var(--gold);color:var(--gold)}
+.quick svg{width:20px;height:20px;flex-shrink:0;stroke:var(--gold);fill:none;stroke-width:1.8}
+
+/* 页尾 */
+.site-footer{border-top:1px solid var(--line);padding:34px 0 40px;background:#0b1019}
+.footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.footer-brand svg{width:26px;height:26px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.footer-links a:hover{color:var(--gold)}
+.footer-note{width:100%;margin-top:20px;font-size:12.5px;color:#6b788c;line-height:1.9;border-top:1px dashed var(--line);padding-top:16px}
+
+/* 响应式 */
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:32px;padding:40px 0}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .quick{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .header-inner{height:auto;flex-wrap:wrap;padding:12px 0;gap:10px}
+  .nav{margin-left:0;gap:14px;width:100%}
+  .nav a{font-size:13px}
+  .grid-3{grid-template-columns:1fr}
+  .list-row{grid-template-columns:32px 1fr;gap:10px;padding:14px 16px}
+  .list-time{display:none}
+  .quick{grid-template-columns:1fr}
+  section{padding:38px 0}
+  .hero-desc{font-size:15px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="91今日大赛首页">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2739" stroke="#2a3549"/>
+        <path d="M18 44 L32 15 L46 44 Z" fill="none" stroke="#f2b94b" stroke-width="3.4" stroke-linejoin="round"/>
+        <circle cx="32" cy="48" r="3.6" fill="#f2b94b"/>
+      </svg>
+      <span class="brand-name">91今日大赛</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#hotlist">热点榜单</a>
+      <a href="#brief">今日速览</a>
+      <a href="#reading">看点解读</a>
+      <a href="#channels">热门入口</a>
+      <a class="nav-cta" href="#hotlist">看今日榜单</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>当日热点 · 实时速览</span>
+        <h1 id="hero-title">91今日大赛</h1>
+        <p class="hero-desc">
+          91今日大赛把每一个比赛日里被反复讨论的看点集中到一处：谁在榜单前列、哪些话题刚刚升温、哪些细节值得再看一遍。
+          页面按<strong>热度</strong>与<strong>更新时间</strong>两条线索排布，打开即可看到今日焦点，不必在多处信息之间来回切换。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#hotlist">浏览今日榜单</a>
+          <a class="btn btn-ghost" href="#brief">查看速览</a>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-label="今日焦点快照">
+        <h2>今日焦点快照</h2>
+        <ul class="side-list">
+          <li>
+            <span class="side-rank">1</span>
+            <span>榜首话题持续占据讨论区<span class="side-meta">热度最高 · 今日更新</span></span>
+          </li>
+          <li>
+            <span class="side-rank">2</span>
+            <span>中段名次出现明显变动<span class="side-meta">排序波动 · 今日更新</span></span>
+          </li>
+          <li>
+            <span class="side-rank">3</span>
+            <span>新上榜内容进入视线范围<span class="side-meta">新入榜 · 今日新增</span></span>
+          </li>
+          <li>
+            <span class="side-rank">4</span>
+            <span>争议点集中在少数细节上<span class="side-meta">讨论集中 · 今日更新</span></span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="hotlist" aria-labelledby="hotlist-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="hotlist-title">热点榜单</h2>
+        <p>按当日讨论热度归类的三组焦点。每张卡片对应一类看点，说明它为什么被关注，以及它的热度处在什么位置。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="card-tag">榜首焦点</span>
+          <h3>头部看点集中在一处</h3>
+          <p>当天被提及次数最多的方向，讨论内容集中在过程细节与结果判断上，围绕它的更新最密集，榜单名次也最稳定。</p>
+          <div class="card-foot"><span>热度：最高</span><span class="hot">今日更新</span></div>
+        </article>
+        <article class="card">
+          <span class="card-tag warm">变动位</span>
+          <h3>中段名次出现调整</h3>
+          <p>原本排在中间位置的内容因为新的讨论而前移，也有部分条目热度回落。名次变化本身就是当天值得留意的信号。</p>
+          <div class="card-foot"><span>热度：较高</span><span class="hot">今日更新</span></div>
+        </article>
+        <article class="card">
+          <span class="card-tag">新入榜</span>
+          <h3>刚进入视野的新看点</h3>
+          <p>今天新出现的关注方向，讨论量还在积累阶段。它未必立刻冲到前列，但常是后续几天走势的起点。</p>
+          <div class="card-foot"><span>热度：上升中</span><span class="hot">今日新增</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="brief" aria-labelledby="brief-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="brief-title">今日速览</h2>
+        <p>把当天的主要看点压缩成条目，适合只想扫一眼的访问者。每条只保留一个信息点，按时间与关注度排列。</p>
+      </div>
+      <div class="list-panel">
+        <div class="list-row">
+          <span class="num">01</span>
+          <div>
+            <div class="list-title">榜首方向继续领先</div>
+            <div class="list-desc">讨论集中度最高，短时间内未见明显降温迹象。</div>
+          </div>
+          <span class="list-time">今日更新</span>
+        </div>
+        <div class="list-row">
+          <span class="num">02</span>
+          <div>
+            <div class="list-title">细节讨论成为新的分歧点</div>
+            <div class="list-desc">关注点从结果转向过程，讨论内容更分散。</div>
+          </div>
+          <span class="list-time">今日更新</span>
+        </div>
+        <div class="list-row">
+          <span class="num">03</span>
+          <div>
+            <div class="list-title">中段排位交换</div>
+            <div class="list-desc">两条内容热度接近，名次在当天出现交替。</div>
+          </div>
+          <span class="list-time">今日更新</span>
+        </div>
+        <div class="list-row">
+          <span class="num">04</span>
+          <div>
+            <div class="list-title">新内容进入榜单视野</div>
+            <div class="list-desc">讨论量仍少，但出现频次在稳步增加。</div>
+          </div>
+          <span class="list-time">今日新增</span>
+        </div>
+        <div class="list-row">
+          <span class="num">05</span>
+          <div>
+            <div class="list-title">部分旧看点热度回落</div>
+            <div class="list-desc">关注度自然下降，仍保留在榜单范围内。</div>
+          </div>
+          <span class="list-time">今日更新</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reading" aria-labelledby="reading-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="reading-title">看点解读</h2>
+        <p>榜单只回答“谁在前面”，解读则回答“为什么”。以下两段从排序逻辑与讨论方式两方面拆解今日的91今日大赛看点。</p>
+      </div>
+      <div class="split">
+        <div class="article-block">
+          <h3>排序为什么这样排</h3>
+          <p>91今日大赛的排布并非简单按数量堆叠，而是同时考虑讨论密度与新鲜程度。一个方向如果在短时间内被密集提及，位置会前移；如果只是总量多但增量停滞，名次往往让位给更活跃的内容。</p>
+          <p>因此榜单前段常见“讨论集中”的条目，中段则更接近热度拉锯区，名次一天之内可能交换。理解这一点，比记住某个具体名次更有用：它解释了为什么今天看过的顺序，明天再看会有所不同。</p>
+          <p>对只想快速了解情况的访问者，建议先看前三条，再扫一眼中段变动位。前段告诉你今天的主线，中段告诉你接下来的可能变化。</p>
+        </div>
+        <aside class="aside-note" aria-label="阅读提示">
+          <h3>浏览建议</h3>
+          <ul>
+            <li>先看榜首，建立当日主线印象</li>
+            <li>再看中段变动位，判断走势</li>
+            <li>新入榜条目适合持续跟踪两天</li>
+            <li>讨论集中的细节，通常比结果更有信息量</li>
+            <li>热度回落不等于失去价值，可回看历史排序</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="channels-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="channels-title">讨论为何集中</h2>
+        <p>当天讨论的集中点，往往不是最完整的叙述，而是最容易被拿来比较的细节。91今日大赛把这类细节单独标出，便于判断讨论方向。</p>
+      </div>
+      <div class="article-block">
+        <p>从今日的条目分布看，分歧主要出现在过程判断上：同一件事，不同人关注的部分不同，得出的结论也随之不同。这类讨论通常持续一到两天，随后被新的看点覆盖。相比之下，对结果的描述更一致，讨论空间也更小。</p>
+        <p>这也是榜单把“讨论集中度”与“热度”分开呈现的原因：热度高的条目不一定争议大，争议大的条目也不一定热度最高。两者结合看，才能判断一个看点处在什么阶段——刚出现、正在发酵，还是已经进入尾声。</p>
+        <p>对于希望获得稳定信息的访问者，建议优先关注描述一致、增量平稳的条目；对于想了解讨论走向的访问者，变动位与新上榜内容更值得留意。91今日大赛在两者之间保持平衡，不做单边放大。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="channels" aria-labelledby="quick-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="quick-title">热门入口</h2>
+        <p>直接跳转到页面内对应的板块，减少滚动查找。</p>
+      </div>
+      <div class="quick">
+        <a href="#hotlist">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2" stroke-linecap="round"/></svg>
+          热点榜单
+        </a>
+        <a href="#brief">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>
+          今日速览
+        </a>
+        <a href="#reading">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke-linecap="round"/></svg>
+          看点解读
+        </a>
+        <a href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2739" stroke="#2a3549"/>
+        <path d="M18 44 L32 15 L46 44 Z" fill="none" stroke="#f2b94b" stroke-width="3.4" stroke-linejoin="round"/>
+        <circle cx="32" cy="48" r="3.6" fill="#f2b94b"/>
+      </svg>
+      91今日大赛
+    </div>
+    <nav class="footer-links" aria-label="页尾导航">
+      <a href="#hotlist">热点榜单</a>
+      <a href="#brief">今日速览</a>
+      <a href="#reading">看点解读</a>
+      <a href="#channels">热门入口</a>
+    </nav>
+    <p class="footer-note">
+      91今日大赛是一个按比赛日聚合热点看点的首页，内容以当日讨论热度与更新时间为排布依据，名次与讨论集中度会随日期变化。页面不提供参与入口，仅用于浏览与判断当日焦点。热度、名次与更新状态均为示意性展示，具体以当日实际情况为准。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
